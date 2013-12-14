@@ -20,7 +20,7 @@ public class Primer {
 		if(request % limit == 0){
 			return false;
 		}
-		for(long i = 4; i < limit; i++){
+		for(long i = 4; i <= limit; i++){
 			if(request % i == 0){
 				Log.e("Test", "Returning value of isPrime, result: false");
 				return false;

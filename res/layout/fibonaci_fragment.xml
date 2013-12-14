@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:text="@string/fibonacci_fragment_topLeftText_text"/>
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:text="@string/fibonacci_fragment_topRightText_text"/>
+        
+    </LinearLayout>
+    
+    <ListView
+        android:id="@+id/fibonaci_fragment_listview"
+        android:layout_width="match_parent"
+        android:layout_height="289dp"
+        android:layout_weight="0.06" >
+
+    </ListView>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="1" >
+
+        <EditText
+            android:id="@+id/fibonaci_fragment_inputField"
+            android:layout_column="0"
+            android:layout_gravity="left|top"
+            android:layout_row="0"
+            android:ems="10"
+            android:inputType="number" 
+            android:hint="@string/fibonacci_fragment_inputField_hint">
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/fibonaci_fragment_gotoBtn"
+            android:layout_column="0"
+            android:layout_gravity="right|top"
+            android:layout_row="0"
+            android:text="@string/fibonacci_fragment_gotoBtn_text" />
+    </GridLayout>
+
+    <Button
+        android:id="@+id/fibonaci_fragment_getNextBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.11"
+        android:text="@string/fibonacci_fragment_getNextBtn_text" />
+
+</LinearLayout>

@@ -6,10 +6,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    tools:context=".PrimeFragment" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/IsPrime_Fragment_IntroText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -18,37 +18,36 @@
         android:text="@string/introText" />
 
     <EditText
-        android:id="@+id/InputField"
+        android:id="@+id/IsPrime_Fragment_InputField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/IsPrime_Fragment_IntroText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="64dp"
         android:ems="10"
         android:hint="@string/InputField_Hint"
-        android:inputType="number" >
+        android:inputType="number">
 
         <requestFocus />
     </EditText>
 
     <TextView
-        android:id="@+id/OutPutField"
+        android:id="@+id/IsPrime_Fragment_OutPutField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView1"
-        android:layout_below="@+id/calcBtn"
+        android:layout_alignRight="@+id/IsPrime_Fragment_IntroText"
+        android:layout_below="@+id/IsPrime_Fragment_calcBtn"
         android:layout_marginTop="48dp"
         android:text="@string/OutputField_Hint"
         android:ems="10" />
 
     <Button
-        android:id="@+id/calcBtn"
+        android:id="@+id/IsPrime_Fragment_calcBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/InputField"
+        android:layout_below="@+id/IsPrime_Fragment_InputField"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="41dp"
-        android:onClick="calculatePrime"
         android:text="@string/CalcBtn_Text" />
 
 </RelativeLayout>
