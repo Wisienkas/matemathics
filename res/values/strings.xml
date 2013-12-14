@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">IsPrime?</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="introText">Enter Number To figure if it\'s prime</string>
+    <string name="CalcBtn_Text">"Is Prime ? "</string>
+    <string name="OutputField_Hint">"Will output Result!"</string>
+    <string name="InputField_Hint">"Enter Number here"</string>
+
+</resources>
