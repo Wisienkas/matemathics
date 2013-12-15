@@ -79,7 +79,6 @@ public class FibonacciFragment extends Fragment {
 				Log.e("Fibonacci", "GetNextBtn Clicked!");
 				fibonacci.getNext();
 				new LoadAdapter().execute();
-//				new updateAdapter().execute();
 			}
 		});
 		this.getNextBtn.setEnabled(false);
@@ -115,26 +114,15 @@ public class FibonacciFragment extends Fragment {
 		this.gotoNBtn.setBackgroundColor(Color.DKGRAY);
 	}
 	
-	private class updateAdapter extends AsyncTask<Void, Void, Void>{
-
-		@Override
-		protected Void doInBackground(Void... params) {
-			while(adapter.getCount() > LISTSIZE){
-				adapter.remove(adapter.getItem(0));
-			}
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(Void result) {
-			super.onPostExecute(result);
-		}
-		
-	}
-	
 	private Long getValueOfN(){
 		Long result = null;
 		try{
+			String s = this.inputField.getText().toString();
+			if(s.length() > 19){
+				return null;
+			}else if(s.length() == 19 && s.startsWith("9")){
+				return null;
+			}
 			result = Long.valueOf(this.inputField.getText().toString());
 			this.gotoNBtn.setBackgroundColor(Color.GREEN);
 		}catch (NumberFormatException e){

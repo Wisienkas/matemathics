@@ -18,6 +18,8 @@ public class PrimeFragment extends Fragment {
 
 	private EditText inputField;
 	private TextView outputField;
+	private TextView beforeField;
+	private TextView afterField;
 	private Button calculateBtn;
 	private View view;
 	
@@ -27,35 +29,61 @@ public class PrimeFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
-		view = inflater.inflate(R.layout.isprime_fragment, container, false);
-		inputField = (EditText) view.findViewById(R.id.IsPrime_Fragment_InputField);
-		outputField = (TextView) view.findViewById(R.id.IsPrime_Fragment_OutPutField);
-		calculateBtn = (Button) view.findViewById(R.id.IsPrime_Fragment_calcBtn);
-		calculateBtn.setOnClickListener(new OnClickListener() {
+		this.view = inflater.inflate(R.layout.isprime_fragment, container, false);
+		this.inputField = (EditText) view.findViewById(R.id.IsPrime_Fragment_InputField);
+		this.outputField = (TextView) view.findViewById(R.id.IsPrime_Fragment_OutPutField);
+		this.beforeField = (TextView) view.findViewById(R.id.IsPrime_Fragment_beforeOutput);
+		this.beforeField.setText("Before: \t");
+		this.afterField = (TextView) view.findViewById(R.id.IsPrime_Fragment_afterOutput);
+		this.afterField.setText("After: \t");
+		this.calculateBtn = (Button) view.findViewById(R.id.IsPrime_Fragment_calcBtn);
+		this.calculateBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				new HandlePrime().execute(inputField.getText().toString());
 			}
 		});
-		return view;
+		return this.view;
 	}
 	
 	private class HandlePrime extends AsyncTask<String, Void, Boolean>{
-
+		
+		private Long before;
+		private Long after;
+		
 		@Override
 		protected Boolean doInBackground(String... params) {
 			Long input;
+			
 			try{
-				input = Long.valueOf(params[0]);
+				String s = params[0];
+				if(s.length() > 19){
+					return null;
+				}else if(s.length() == 19 && s.startsWith("9")){
+					return null;
+				}
+				input = Long.valueOf(s);
 			}catch (NumberFormatException e){
 				return null;
 			}
+			this.before = Primer.getPreviousPrime(input);
+			this.after = Primer.getNextPrime(input);
 			return Primer.isPrime(input);
 		}
 
 		@Override
 		protected void onPostExecute(Boolean result) {
 			super.onPostExecute(result);
+			if(this.before != null){
+				beforeField.setText("Previous:\t " + String.valueOf(this.before));
+			}else{
+				beforeField.setText("Previous:\t Invalid!");
+			}
+			if(this.after != null){
+				afterField.setText("Next:\t " + String.valueOf(this.after));
+			}else{
+				afterField.setText("Next:\t Invalid");
+			}
 			String text = "Result: ";
 			if(result != null){
 				if(result){

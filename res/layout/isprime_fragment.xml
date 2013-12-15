@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="49dp"
-        android:text="@string/introText" />
+        android:text="@string/isPrime_fragment_introText" />
 
     <EditText
         android:id="@+id/IsPrime_Fragment_InputField"
@@ -25,8 +25,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="64dp"
         android:ems="10"
-        android:hint="@string/InputField_Hint"
-        android:inputType="number">
+        android:hint="@string/isPrime_fragment_InputField_Hint"
+        android:inputType="number" >
 
         <requestFocus />
     </EditText>
@@ -38,8 +38,8 @@
         android:layout_alignRight="@+id/IsPrime_Fragment_IntroText"
         android:layout_below="@+id/IsPrime_Fragment_calcBtn"
         android:layout_marginTop="48dp"
-        android:text="@string/OutputField_Hint"
-        android:ems="10" />
+        android:ems="10"
+        android:text="@string/isPrime_fragment_OutputField_Hint" />
 
     <Button
         android:id="@+id/IsPrime_Fragment_calcBtn"
@@ -48,6 +48,29 @@
         android:layout_below="@+id/IsPrime_Fragment_InputField"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="41dp"
-        android:text="@string/CalcBtn_Text" />
+        android:text="@string/isPrime_fragment_CalcBtn_Text" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/IsPrime_Fragment_InputField"
+        android:layout_alignRight="@+id/IsPrime_Fragment_InputField"
+        android:layout_below="@+id/IsPrime_Fragment_OutPutField"
+        android:layout_marginTop="42dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/IsPrime_Fragment_beforeOutput"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"/>
+
+        <TextView
+            android:id="@+id/IsPrime_Fragment_afterOutput"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"/>
+        
+    </LinearLayout>
 
 </RelativeLayout>
