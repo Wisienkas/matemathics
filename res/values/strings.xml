@@ -12,6 +12,7 @@
     <!-- Fibonacci fragment Strings -->
 	<string name="fibonacci_fragment_gotoBtn_text">Go To N</string>
 	<string name="fibonacci_fragment_getNextBtn_text">Get Next Number</string>
+	<string name="fibonacci_fragment_resetBtn_text">ResetList</string>
 	<string name="fibonacci_fragment_inputField_hint">Enter N</string>
 	<string name="fibonacci_fragment_topLeftText_text">No.</string>
 	<string name="fibonacci_fragment_topRightText_text">Value</string>

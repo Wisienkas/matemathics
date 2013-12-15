@@ -20,6 +20,9 @@ public class Fibonacci {
 		int length = this.listOfFibonacciNumbers.size() - 1;
 		long newNumber = this.listOfFibonacciNumbers.get(length).getFibonacciValue() 
 				+ this.listOfFibonacciNumbers.get(length -1).getFibonacciValue();
+		if(newNumber < this.listOfFibonacciNumbers.get(length).getFibonacciValue()){
+			return null;
+		}
 		this.listOfFibonacciNumbers
 				.add(new FibonacciNumber(this.listOfFibonacciNumbers.get(length).getNumberInList() + 1, 
 				newNumber));
@@ -27,7 +30,10 @@ public class Fibonacci {
 	}
 	
 	public void generateUpTo(long n){
-		while(calcNextFibonacci().getFibonacciValue() < n){};
+		FibonacciNumber fibo = calcNextFibonacci();
+		while(fibo.getFibonacciValue() < n && fibo != null){
+			fibo = calcNextFibonacci();
+		};
 	}
 	
 	public ArrayList<FibonacciNumber> getAllFibonacciNumbers(){
